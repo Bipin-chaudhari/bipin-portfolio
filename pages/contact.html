@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" >
+    <title>Contact - Bipin chaudhary</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <!-- hero section -->
+    <header id="top" class="header">
+      <nav class="nav-container">
+        <!-- nav links -->
+        <div class="brand">
+          <a href="../index.html" class="nav-link icon">Bipin.</a>
+        </div>
+
+        <div class="nav-items" id="#navItems">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="./about.html" class="nav-link">About</a>
+          <a href="./skills.html" class="nav-link">Skills</a>
+          <a href="./portfolio.html" class="nav-link">Portfolio</a>
+          <a href="./contact.html" class="nav-link active">Contact</a>
+        </div>
+
+        <div class="menu-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="hero">
+      <div class="contact-conatiner hero-content">
+        <div class="banner">
+          <h1>Contact me</h1>
+          <p>Please scroll down 👇</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-me">
+      <div class="contct-me-conatiner container">
+        <h2 class="resume-container-title section-title">Contact me</h2>
+        <h1 class="resume-container-qoute section-quote">
+          "Questions or collaborations? Drop me a line; let's connect!"
+        </h1>
+
+        <div class="contact-me-content">
+          <div class="contact-me-items contact-me-text">
+            <div class="contact-me-text-para">
+              <h3>
+                Let's Chat. <br />
+                Tell me about your <br />
+                provision?
+              </h3>
+              <p>Let's create something together ✌️</p>
+
+              <div class="contact-email">
+                <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:chaudharibipin121@gmail.com">
+                  chaudharibipin121@gmail.com</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="contact-me-items contact-me-form">
+            <form id="contactForm">
+              <div class="form-item">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-item">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-item">
+                <label for="message">Message:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="button" onclick="submitForm()">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container footer">
+      <p>
+        Copyright &copy; <span id="currentYear"></span>, Designed with love ❤️,
+        Bipin Chaudhary
+      </p>
+    </footer>
+  </body>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <script>
+    emailjs.init("EJ9LOlCNNhixfypZR");
+
+    function submitForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      if (name && email && message) {
+        var templateParams = {
+          from_name: name,
+          from_email: email,
+          message: message,
+        };
+
+        emailjs
+          .send("service_qe1ntbk", "template_o76kye7", templateParams)
+          .then(
+            function (response) {
+              alert(
+                "Your message has been sent!\n\nName: " +
+                  name +
+                  "\nEmail: " +
+                  email +
+                  "\nMessage: " +
+                  message
+              );
+            },
+            function (error) {
+              alert("Error sending email. Please try again later.");
+            }
+          );
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+  <script src="../js/script.js"></script>
+</html>
